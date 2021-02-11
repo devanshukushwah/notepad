@@ -41,6 +41,13 @@ $(function(){
 
   });
     }
+    $('#codebtn').click(function code(e){
+        $("body").empty();
+        var txt1 = "<iframe height=\"400px\" width=\"600px\" src=\"https://repl.it/@DevanshuKushwah/c?lite=true\" scrolling=\"no\" frameborder=\"no\" allowtransparency=\"true\" allowfullscreen=\"true\" sandbox=\"allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals\"></iframe>"; 
+        $("body").append(txt1);
+    });
+    // function 
+
 });
 
 var tame,res,res2,tpe;

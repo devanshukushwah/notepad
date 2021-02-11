@@ -90,7 +90,7 @@ border-radius:5px;
 #mybtn:active{
   background-color:#cee346;
 }
-#schbtn,#updbtn,#delbtn{
+#schbtn,#updbtn,#delbtn,#codebtn{
     border:1px solid #b9cfb6;
     border-radius:5px;
   margin-top:-149px;
@@ -98,10 +98,10 @@ border-radius:5px;
   height: 20px;
   /* position: absolute; */
 }
-#schbtn:hover,#updbtn:focus,#updbtn:hover,#delbtn:focus,#delbtn:hover,#schbtn:focus{
+#schbtn:hover,#updbtn:focus,#updbtn:hover,#delbtn:focus,#delbtn:hover,#schbtn:focus,#codebtn:hover,#codebtn:focus{
  background-color:#cee346;
 }
-#schbtn:active,#updbtn:active,#delbtn:active{
+#schbtn:active,#updbtn:active,#delbtn:active,#codebtn:active{
   transform: scale(0.98); 
   background-color: chartreuse;
 
@@ -159,12 +159,13 @@ display: inline-block;
 border: 1px solid #bbb;
 }
 #div_ste{
+  position: absolute;
   height:18px;
  border-radius:5px;
   border:1px solid #b9cfb6;
   width:300px;
   text-align:center;
-  margin-top:121px;
+  margin-top:99px;
   margin-left:136px;
    -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
@@ -191,13 +192,14 @@ border: 1px solid #bbb;
 margin-top:-185px;
 }
 #chat{
+  /* position: absolute; */
  border:1px solid #b9cfb6;
 border-radius:5px;
   width: 455px;
   height: 25px;
   padding-left:5px;
   margin-left:136px;
-  margin-top: 2px;
+  margin-top: 121px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   min-height:17px;
   max-height:300px;
