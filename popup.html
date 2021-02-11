@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NOTEPAD</title>
+        <link rel="stylesheet" href="style.css">
+        <!-- <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-database.js"></script>    -->
+        <script src="firebase-app.js"></script>
+        <script src="firebase-auth.js"></script>
+        <script src="firebase-database.js"></script>   
+
+
+<script src="jquery-3.2.1.min.js">
+
+        </script>
+
+    <script src="popup.js">
+
+        </script>
+    <script src="background.js">
+
+    </script>
+    </head>
+    
+    <body><section>
+        <center><h1>NOTEPAD</h1></center>
+      <div id ="div_status">
+        <span id="status1"></span>
+        <span id="status2"></span>
+        <span id="status3"></span>
+        </div>
+        <form id="myform">
+        <input type="text" tabindex="1" id="topic" placeholder="TOPIC"/ autocomplete="off" autofocus required><br>
+        <!-- <input type="text" id="data" placeholder="DATA ABOUT TOPIC" autocomplete="off" /><br> -->
+        <textarea spellcheck="false" type="text" tabindex="3" id="data" placeholder="DATA ABOUT TOPIC" autocomplete="off" / required></textarea><br>
+        <input type="submit" tabindex="4" id="mybtn" value="PRESS ENTER" /></input>
+        </form>
+        <div id="div_btn">
+        <input type="button" tabindex="2" id="schbtn" value="SEARCH" /><br>
+        <input type="button" tabindex="5" id="updbtn" value="UPDATE" /><br>
+        <input type="button" tabindex="6" id="delbtn" value="DELETE" />
+        </div>
+        <div id="div_ste"><span id="ste">Type Your Note!</span></div>        
+        <textarea spellcheck="false" type="text" placeholder="CHAT" tabindex="7" id="chat" contenteditable></textarea>
+
+    
+    </section>
+    </body>
+</html>
