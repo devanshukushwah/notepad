@@ -17,6 +17,12 @@ console.log("you in popup.js file!");
 
 $(function () {
 
+    $('#chatbtn').click(function gotolink(){
+        // window.open('https://google.com','_blank');
+        window.open($('#chat').val(),'_blank');
+        // console.log("sdfajasklfj");
+    })
+
     ser_chat();
 
     $('#data').val(word);
@@ -37,7 +43,21 @@ $(function () {
         firebase.database().ref('chat/D&A').on('value', function (snapshot) {
 
             const ta = snapshot.val();
-            $('#chat').val(ta.chat);
+            const data = ta.chat;
+            $('#chat').val(data);
+
+            const d1 = data.slice(0, 7);
+            const d2 = data.slice(0, 8);
+            if (d1 == "http://" || d2 == "https://") {
+                // tpe = "link";
+                // $('#chatbtn').css("display","block");
+                $('#chat').css("width","403px");
+            } else {
+                // tpe = "description";
+                // $('#chatbtn').css("display","none");
+                $('#chat').css("width","455px");
+            }
+
 
         });
     }
