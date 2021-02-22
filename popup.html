@@ -1,71 +1,59 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>NOTEPAD</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-database.js"></script>    -->
-    <script src="firebase-app.js"></script>
-    <script src="firebase-auth.js"></script>
-    <script src="firebase-database.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="style.css">
+  <script src="firebase-app.js"></script>
+  <script src="firebase-auth.js"></script>
+  <script src="firebase-database.js"></script>
 
 
-    <script src="jquery-3.2.1.min.js">
+  <script src="jquery-3.2.1.min.js">
 
-    </script>
+  </script>
 
-    <script src="popup.js">
+  <script src="popup.js">
 
-    </script>
-    <script src="background.js">
+  </script>
+  <script src="background.js">
 
-    </script>
+  </script>
+  <title>NOTEPAD</title>
 </head>
-
 <body>
-    <section>
-        <center>
-            <h1>NOTEPAD</h1>
-        </center>
-        <div id="div_status">
-            <span id="status1"></span>
-            <span id="status2"></span>
-            <span id="status3"></span>
-        </div>
-        <form id="myform">
-            <input type="text" tabindex="1" id="topic" placeholder="TOPIC"/ autocomplete="off" autofocus required><br>
-            <!-- <input type="text" id="data" placeholder="DATA ABOUT TOPIC" autocomplete="off" /><br> -->
-            <textarea spellcheck="false" type="text" tabindex="3" id="data" placeholder="DATA ABOUT TOPIC"
-                autocomplete="off" / required></textarea><br>
-            <input type="submit" tabindex="4" id="mybtn" value="PRESS ENTER" /></input>
-        </form>
-        <div id="div_btn">
-            <input type="button" tabindex="2" id="schbtn" value="SEARCH" /><br>
-            <input type="button" tabindex="5" id="updbtn" value="UPDATE" /><br>
-            <input type="button" tabindex="6" id="delbtn" value="DELETE" /><br>
-            <input type="button" tabindex="7" id="codebtn" value="CODE" />
+  <section id="head">
+    <center><strong>NOTEPAD</strong></center>
+  </section>
 
-        </div>
-        <div id="div_ste"><span id="ste">Type Your Note!</span></div>
-        <section>
-        <textarea spellcheck="false" type="text" placeholder="CHAT" tabindex="7" id="chat" contenteditable></textarea>
-        <button id="chatbtn"> Go to Link</button>
-    </section>
-
-    </section>
-    <div id="jsloader">
-        <div class="loader">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <!-- //dsfds -->
-        </div>
-
+  <section id="body2">
+  <div class="container">
+  <div class="box1">
+     <form id="myform">
+<input type="text" tabindex="1" id="topic" placeholder="TOPIC"/ autocomplete="off" autofocus required>
+<input type="submit" tabindex="4" id="mybtn" value="PRESS ENTER" /><br>
+    </form>
+       <input type="button" tabindex="2" id="schbtn" value="SEARCH" />
+       <input type="button" tabindex="5" id="updbtn" value="UPDATE" />
+       <input type="button" tabindex="6" id="delbtn" value="DELETE" />
+       <input type="button" tabindex="7" id="codebtn" value="CODE" /> 
+       <input type="button" tabindex="8" id="alltopicbtn" value="ALL TOPIC" />
+       
+    <div id="alltopicdiv">
+      <div id="tmpdiv">CLICK ON <strong>ALL TOPIC BUTTON</strong> TO SEE ALL TOPIC THAT IS STORED</div>
     </div>
-</body>
+    
+    </div>
+  <div class="box2">
+<textarea form="myform" spellcheck="false" type="text" tabindex="3" id="data" placeholder="DATA ABOUT TOPIC" autocomplete="off" /required></textarea>
+<div id="div_ste"><span id="ste">Type Your Note!</span></div>
+    <div id="chat_container">
+      <textarea spellcheck="false" type="text" placeholder="CHAT" tabindex="7" id="chat"></textarea>
+        <button id="chatbtn"> Go to Link</button>
+    </div>
+    </div>
+</div>
+</section>
 
+</body>
 </html>

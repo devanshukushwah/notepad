@@ -50,12 +50,12 @@ $(function () {
             const d2 = data.slice(0, 8);
             if (d1 == "http://" || d2 == "https://") {
                 // tpe = "link";
-                // $('#chatbtn').css("display","block");
-                $('#chat').css("width","403px");
+                $('#chatbtn').css("display","block");
+                $('#chat').css("width","90%");
             } else {
                 // tpe = "description";
-                // $('#chatbtn').css("display","none");
-                $('#chat').css("width","455px");
+                $('#chatbtn').css("display","none");
+                $('#chat').css("width","100%");
             }
 
 
