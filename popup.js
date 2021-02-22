@@ -17,6 +17,96 @@ console.log("you in popup.js file!");
 
 $(function () {
 
+    
+
+    $('#alltopicbtn').click(function alltopicbtn(){
+        $('#alltopicdiv').empty();
+        firebase.database().ref('notepad/').once('value', function (snapshot) {
+            
+            var scores = snapshot.val();
+            var keys = Object.keys(scores);
+            // console.log(keys);
+            for(var i=0;i<keys.length;i++){
+                var cont = "<input type='button' id='readkey' value = '" +keys[i]+"' data_ex = '"+ i+  "' /> ";
+                $("#alltopicdiv").append(cont);
+            }
+
+        });      
+    });
+
+    $("#alltopicdiv").on('click', '#readkey', function () {
+    // $('#readkey').click(function rdkey(){
+        sh(this.value);
+        console.log(this.value);
+    });
+
+    var owntopic = "";
+
+    function sh(topic) {
+        $('#ste').html("Wait!");
+
+        // console.log(data);
+
+        if(owntopic==""){
+            n_o=-1;
+            owntopic = topic;
+        }
+        if(owntopic !=topic){
+            n_o=-1;
+            owntopic="";
+        }
+
+
+        n_o += 1;
+        // if ($('#topic').val() == "") {
+        //     console.log("nothing");
+        //     $('#ste').html("Type Topic To Search!");
+        //     $('#ste').css("color", "#E60000");
+
+        //     return true;
+        // }
+        // e.preventDefault();
+
+        // $('#topic').val(topic);
+        // ownready(topic);
+        
+        
+
+
+        console.log("click on serach!");
+        firebase.database().ref('notepad/' + topic).orderByChild('data').on('value', function (snapshot) {
+            if (!snapshot.exists()) {
+                console.log("not exist");
+                $('#ste').html("Not Found!");
+                $('#ste').css("color", "#E60000");
+
+                return true;
+            }
+            var te = snapshot.val();
+            // console.log(Object.keys(te).length-2);
+            
+            // $('#ste').css("background-color","#FF7800");
+            // console.log(te); // object 
+            var keys = Object.keys(te);
+            // console.log();
+            let infoData = keys[n_o];
+            let data = te[infoData].data;
+            tame = te[infoData].time;
+            topic = te[infoData].topic;
+            // console.log(data);
+            $('#data').val(data);
+
+            if (n_o >= parseInt(Object.keys(te).length - 1)) {
+                $('#ste').html("This is Last Data!");
+                // n_o = Object.keys(te).length - 1;
+                n_o=-1;
+            } else {
+                $('#ste').html("Click Again For Next!");
+
+            }
+        });
+    }
+
     $('#chatbtn').click(function gotolink(){
         // window.open('https://google.com','_blank');
         window.open($('#chat').val(),'_blank');
@@ -208,13 +298,13 @@ $(function (e) {
             }
             var te = snapshot.val();
             // console.log(Object.keys(te).length-2);
-            if (n_o >= parseInt(Object.keys(te).length - 1)) {
-                $('#ste').html("This is Last Data!");
-                n_o = Object.keys(te).length - 1;
-            } else {
-                $('#ste').html("Click Again For Next!");
+            // if (n_o >= parseInt(Object.keys(te).length - 1)) {
+            //     $('#ste').html("This is Last Data!");
+            //     n_o = Object.keys(te).length - 1;
+            // } else {
+            //     $('#ste').html("Click Again For Next!");
 
-            }
+            // }
             // $('#ste').css("background-color","#FF7800");
             // console.log(te); // object 
             var keys = Object.keys(te);
@@ -225,6 +315,14 @@ $(function (e) {
             topic = te[infoData].topic;
             // console.log(data);
             $('#data').val(data);
+            if (n_o >= parseInt(Object.keys(te).length - 1)) {
+                $('#ste').html("This is Last Data!");
+                // n_o = Object.keys(te).length - 1;
+                n_o=-1;
+            } else {
+                $('#ste').html("Click Again For Next!");
+
+            }
 
 
         });

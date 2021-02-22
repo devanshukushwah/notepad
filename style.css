@@ -79,7 +79,7 @@
  
  
  /* for border to all content items */
- #topic,#data,#schbtn,#updbtn,#delbtn,#codebtn,#mybtn,#alltopicbtn,#chat,#chatbtn,#alltopicdiv{
+ #topic,#data,#schbtn,#updbtn,#delbtn,#codebtn,#mybtn,#alltopicbtn,#chat,#chatbtn,#alltopicdiv,#readkey{
     border: 1px solid #b9cfb6;
    border-radius: 5px;
  }
@@ -104,6 +104,8 @@
    max-height:350px;
    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
  }
+ #readkey:hover,
+ #readkey:focus,
  #alltopicbtn:hover,
  #alltopicbtn:focus,
  #mybtn:hover,
@@ -121,6 +123,11 @@
    background-color: #cee346;
  }
  
+input:active{
+  transform: scale(0.98); 
+
+}
+
  #mybtn,#schbtn,#codebtn,#updbtn,#delbtn,#alltopicbtn{
    height:20px;
    width:100%;
@@ -150,6 +157,7 @@
    float:left;
    width:100%;
    margin-bottom: 2px;
+   max-height: 300px;
  }
  #chatbtn{
    margin-left:0.5%;
@@ -160,10 +168,20 @@
    margin-bottom: 2px;
  }
  #alltopicdiv{
-   padding:2px;
+   /* align-items: right; */
+   text-align: center;
+   padding:2px 0px;
    margin-top:2px;
    height:104px;
    margin-bottom:2px;
+   overflow: scroll;
+   overflow-x:hidden;
+   -webkit-touch-callout: none;
+   -webkit-user-select: none;
+   -khtml-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
  }
 #tmpdiv{
   text-align:center;
@@ -176,4 +194,7 @@
 
 #head{
   font-size: 18px;
+}
+#readkey{
+  padding: 1px 3px;
 }
