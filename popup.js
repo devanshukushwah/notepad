@@ -20,14 +20,16 @@ $(function () {
     
 
     $('#alltopicbtn').click(function alltopicbtn(){
-        $('#alltopicdiv').empty();
-        firebase.database().ref('notepad/').once('value', function (snapshot) {
+        $('#tmpdiv').val("Wait...");
+        firebase.database().ref('notepad/').orderByKey().on('value', function (snapshot) {
+            $('#alltopicdiv').empty();
+
             
             var scores = snapshot.val();
             var keys = Object.keys(scores);
             // console.log(keys);
             for(var i=0;i<keys.length;i++){
-                var cont = "<input type='button' id='readkey' value = '" +keys[i]+"' data_ex = '"+ i+  "' /> ";
+                var cont = "<input type='button' id='readkey' value = '" +keys[i]+"' /> ";
                 $("#alltopicdiv").append(cont);
             }
 
@@ -358,6 +360,19 @@ $(function (e) {
         }); //.........................................//server request verification end
     });
 
+    function topictame(topic){
+        firebase.database().ref('notepad/' + topic).orderByChild('data').on('value', function (snapshot) {
+            var te = snapshot.val();
+
+         var keys = Object.keys(te);
+                    
+                    let infoData = keys[n_o];
+                    let data = te[infoData].data;
+                    tame = te[infoData].time;
+         });
+        return tame;
+        }
+
     $('#delbtn').click(function del(e) {
         $('#ste').html("Wait!");
         // n_o+=1;
@@ -370,15 +385,20 @@ $(function (e) {
         }
         e.preventDefault();
         // Ready();
-        console.log("click on delete!");
+        // console.log("click on delete!");
         // data = $('#data').val();
-        $('#data').val("");
+        // console.log(topictame(topic));
+        topic = $('#topic').val();
+        tame = topictame(topic);
+        console.log(tame);
+        console.log(topic);
         firebase.database().ref('notepad/' + topic + "/" + tame).remove().then(() => { //.............................//server request verification start
 
             $('#ste').html("Deleted!");
             $('#ste').css("color", "#FF7800");
             // n_o-=2;
             // sch();
+        // $('#data').val("");
 
         }); //.........................................//server request verification end
     });
