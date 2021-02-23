@@ -47,6 +47,8 @@ $(function () {
 
         // console.log(data);
 
+        $('#topic').val(topic);
+
         if(owntopic==""){
             n_o=-1;
             owntopic = topic;
