@@ -126,10 +126,12 @@ $(function () {
         // e.preventDefault();
         // $('#chat').val("done");
         var temp_chat = $('#chat').val();
+        var chattime = Date.now();
         firebase.database().ref('chat/D&A').set({
-            chat: temp_chat
+            chat: temp_chat,
+            time: chattime
         });
-        // ser_chat();
+        ser_chat();
     });
 
     function ser_chat() {
@@ -138,18 +140,20 @@ $(function () {
 
             const ta = snapshot.val();
             const data = ta.chat;
-            $('#chat').val(data);
+            const chat_time = ta.time;
 
+            $('#chat').val(data);
+            $('#chat_time').html(Date(chat_time).slice(0, 21));
             const d1 = data.slice(0, 7);
             const d2 = data.slice(0, 8);
             if (d1 == "http://" || d2 == "https://") {
                 // tpe = "link";
-                $('#chatbtn').css("display","block");
-                $('#chat').css("width","90%");
+                $('#chat_box2').css("display","block");
+                $('#chat_box1').css("width","90%");
             } else {
                 // tpe = "description";
-                $('#chatbtn').css("display","none");
-                $('#chat').css("width","100%");
+                $('#chat_box2').css("display","none");
+                $('#chat_box1').css("width","100%");
             }
 
 
