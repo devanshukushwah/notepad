@@ -208,7 +208,7 @@ input:active{
   float:right;
   width:9.5%;
 }
-#chat_time{
+#chat_time,#data_time{
   user-select:none;
   opacity:0.6;
   position:relative;

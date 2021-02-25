@@ -95,10 +95,13 @@ $(function () {
             // console.log();
             let infoData = keys[n_o];
             let data = te[infoData].data;
+            var data_time= new Date(te[infoData].time);
+
             tame = te[infoData].time;
             topic = te[infoData].topic;
             // console.log(data);
             $('#data').val(data);
+            $('#data_time').html((data_time.toString().slice(0,21)));
 
             if (n_o >= parseInt(Object.keys(te).length - 1)) {
                 $('#ste').html("This is Last Data!");
@@ -140,10 +143,10 @@ $(function () {
 
             const ta = snapshot.val();
             const data = ta.chat;
-            const chat_time = ta.time;
+            const chat_time = new Date(ta.time);
 
             $('#chat').val(data);
-            $('#chat_time').html(Date(chat_time).slice(0, 21));
+            $('#chat_time').html(chat_time.toString().slice(0, 21));
             const d1 = data.slice(0, 7);
             const d2 = data.slice(0, 8);
             if (d1 == "http://" || d2 == "https://") {
@@ -320,9 +323,14 @@ $(function (e) {
             let infoData = keys[n_o];
             let data = te[infoData].data;
             tame = te[infoData].time;
+            var data_time= new Date(te[infoData].time);
+
             topic = te[infoData].topic;
             // console.log(data);
             $('#data').val(data);
+            $('#data_time').html(data_time.toString().slice(0, 21));
+            
+
             if (n_o >= parseInt(Object.keys(te).length - 1)) {
                 $('#ste').html("This is Last Data!");
                 // n_o = Object.keys(te).length - 1;
@@ -352,6 +360,7 @@ $(function (e) {
         ftpe();
         console.log("click on update!");
         data = $('#data').val();
+
         firebase.database().ref('notepad/' + topic + "/" + tame).set({
             topic: topic,
             data: data,
