@@ -93,7 +93,7 @@
    width: 100%;
    height: 20px;
    text-align: left;
-   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
  }
  #data {
    padding: 2px 5px;
@@ -102,7 +102,7 @@
    width: 100%;
    height: 200px;
    max-height:350px;
-   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
  }
  #readkey:hover,
  #readkey:focus,
@@ -139,6 +139,7 @@ input:active{
    border: 1px solid #b9cfb6;
    width: 100%;
    text-align: center;
+   background-color: #efefef;
    -webkit-touch-callout: none;
    -webkit-user-select: none;
    -khtml-user-select: none;
@@ -175,7 +176,7 @@ input:active{
    margin-top:2px;
    height:104px;
    margin-bottom:2px;
-   overflow: scroll;
+   overflow: auto;
    overflow-x:hidden;
    -webkit-touch-callout: none;
    -webkit-user-select: none;
@@ -197,7 +198,8 @@ input:active{
   font-size: 18px;
 }
 #readkey{
-  padding: 1px 3px;
+  padding:1px 3px;
+  
 }
 #chat_box1{
   float:left;
@@ -217,5 +219,5 @@ input:active{
   margin-right:14px;
   font-weight: 400;
   font-style: oblique;
-float:right;
+  float:right;
 }
