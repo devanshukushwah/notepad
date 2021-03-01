@@ -17,11 +17,69 @@ console.log("you in popup.js file!");
 
 $(function () {
 
+    // $('#topic').focus(function (){
+    //     console.log("you focus on that");
+    //         // if($('#topic').val().length>=1){
+            
+    //         // }
+    //         firebase.database().ref('notepad/').once('value', function (snapshot) {
+    //     $('#optionvalue').empty();
+
+    //             // $('#topic').attr("list","topiclist")
+    //             let scores = snapshot.val();
+    //             let keys = Object.keys(scores);
+    //             for(var i=0;i<keys.length;i++){
+    //             const temp = "<option value=\""+keys[i] +"\" />";
+    //         $('#optionvalue').append(temp);
+    //         }
+    //         });
+
+    // });
+
+    $('#topic').keyup(function (){
+        let results = [];
+        let input = $('#topic').val();
+        if(input.length){
+            results=localtopic.filter((item)=>{
+                return item.toLowerCase().includes(input.toLowerCase());
+            });
+        }
+        renderResults(results); 
+    });
+
+    function renderResults(results){
+         if(!results.length){
+             return [$('#alltopicdiv').empty(),$('#alltopicdiv').append(`<div id="tmpdiv">CLICK ON <strong>ALL TOPIC BUTTON</strong> TO SEE ALL TOPIC THAT ARE STORED</div>`)];
+         }
+         let content = results.map((item)=>{
+            return `<input type='button' id='readkey' value = '${item}' />`
+         })
+         
+         console.log(content);
+         $('#tmpdiv').css("display","none");
+         $('#alltopicdiv').html(`<div id="relatedcontentdiv">Related to your <strong>Typing</strong></div>${content}`);
+
+        }
+
+    var localtopic = [];
+    function localarray(){
+        // e.preventDefault();
+        firebase.database().ref('notepad/').once('value', function (snapshot) {
+        
+                        let scores = snapshot.val();
+                        let keys = Object.keys(scores);
+                        for(var i=0;i<keys.length;i++){
+                        localtopic.push(keys[i]);
+                    }
+                    });
+    // console.log(localtopic);
+    }
+    localarray();
     
 
     $('#alltopicbtn').click(function alltopicbtn(){
         $('#tmpdiv').val("Wait...");
-        firebase.database().ref('notepad/').orderByKey().on('value', function (snapshot) {
+        firebase.database().ref('notepad/').on('value', function (snapshot) {
             $('#alltopicdiv').empty();
 
             
@@ -222,6 +280,8 @@ $(function (e) {
         // $('#status2').css("background-color","#E60000");
         // $('#status3').css("background-color","white");
         Ready();
+    // localarray();
+
         e.preventDefault();
         if (topic != "" && data != "") { //.....................................................// if start
             $('#status1').css("background-color", "white");
