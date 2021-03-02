@@ -53,7 +53,7 @@ $(function () {
          }
          let content = results.map((item)=>{
             return `<input type='button' id='readkey' value = '${item}' />`
-         })
+         }).join(" ");
          
          console.log(content);
          $('#tmpdiv').css("display","none");
