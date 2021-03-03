@@ -135,6 +135,7 @@ input:active{
    width:100%;
  }
  #div_ste {
+   z-index: 99;
    margin-top:-1px;
    height: 20px;
    border-radius: 5px;
@@ -213,13 +214,17 @@ input:active{
   width:9.5%;
 }
 #chat_time,#data_time{
+  background-color: white;
   user-select:none;
-  opacity:0.6;
+  /* opacity:0.6; */
   position:relative;
+  color:#4b4a4a;
   font-size:10.5px;
   margin-top:-18px;
   margin-right:14px;
   font-weight: 400;
   font-style: oblique;
   float:right;
+  padding: 0px 2px;
+  z-index: 0;
 }
