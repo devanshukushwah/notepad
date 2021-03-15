@@ -228,3 +228,8 @@ input:active{
   padding: 0px 2px;
   z-index: 0;
 }
+
+#jsform{
+width:100%;
+border-color: yellow;
+}

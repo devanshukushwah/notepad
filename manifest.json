@@ -17,10 +17,17 @@
     },
     "content_scripts": [{
         "matches": ["<all_urls>"],
+        "css":["content.css"],
         "js": ["jquery-3.2.1.min.js","popup.js","content.js"]
       }],
-      "background":{
-        "scripts":["background.js"]
+      "background": {
+        "persistent": true,
+        "scripts": [
+          "firebase-app.js",
+          "firebase-auth.js",
+          "firebase-database.js",
+          "background.js"
+        ]
       },
       "icons": { "16": "icon.png",
         "48": "icon.png",

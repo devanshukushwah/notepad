@@ -1,0 +1,57 @@
+#cnjsform{
+    outline:none;
+    border: 1px solid #b9cfb6;
+     border-radius: 5px;
+    padding:5px;
+    background-color:white;
+  position: absolute;
+  }
+  #cnjsdel{
+    user-select: none;
+    outline:none;
+    top:0;
+    right:0;
+    background-color: white;
+    margin-top:-12px;
+    margin-left:-2px;
+    float:right;
+    font-size:13px;
+    color:black;
+    font-weight:bold;
+    position:absolute;
+    border: 1px solid #b9cfb6;
+     border-radius: 3px;
+    padding:1px 3px;
+  }
+  #cnjsdel:hover,#cnjsdel:focus{
+    background-color:red;
+    color:white;
+    border:1px solid red;
+  }
+  
+  
+  #cnjsinput:active,#cnjsform input:active,#cnjsdel:active{
+    transform: scale(0.98); 
+  
+  }
+  
+  #cnjsinput:focus,#cnjssubmit:focus{
+    border: 1px solid black;
+  }
+  #cnjssubmit:hover,#cnjssubmit:focus{
+  background-color: #cee346;
+  }
+  #cnjsinput{
+    height:20px;
+    padding-left:5px;
+    outline:none;
+    border: 1px solid #b9cfb6;
+     border-radius: 5px;
+  }
+  #cnjssubmit{
+    outline:none;
+    height:20px;
+  margin-left:2px;
+    border: 1px solid #b9cfb6;
+     border-radius: 5px;
+  }

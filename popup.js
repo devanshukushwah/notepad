@@ -8,8 +8,11 @@
 let word = "";
 let bgpage = chrome.extension.getBackgroundPage();
 // if(word )
-word = bgpage.pixel();
-word = bgpage.word.trim();
+// word = bgpage.pixel();
+// word = bgpage.word.trim();
+word = bgpage.pixel().trim();
+var bckchat = bgpage.chatpass();
+// console.log(bgpage.pixel().trim());
 // word = bgpage.pixel();
 var n_o = -1;
 console.log("you in popup.js file!");
@@ -181,6 +184,7 @@ $(function () {
     ser_chat();
 
     $('#data').val(word);
+    $('#chat').val(bckchat);
 
 
     $('#chat').keyup(function chat(e) {
@@ -220,6 +224,7 @@ $(function () {
 
         });
     }
+
     $('#codebtn').click(function code(e) {
         $("#jsloader").css("display", "block");
         $("section").empty();
@@ -231,7 +236,6 @@ $(function () {
 
     });
     // function 
-
 });
 
 var tame, res, res2, tpe;
